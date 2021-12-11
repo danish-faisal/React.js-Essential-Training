@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
+const [, , light] = ["boots", "tent", "headlamp"];
+
+console.log(light);
+
 function SecretComponent() {
   return <h1>Secret information for authorized users only.</h1>
 }
@@ -12,10 +16,10 @@ function RegularComponent() {
   return <h1>Everyone can see this component.</h1>
 }
 
-function AppTwo(props) {
+function AppTwo({ authorized }) {
   return (
     <>
-      {props.authorized ? <SecretComponent /> : <RegularComponent />}
+      {authorized ? <SecretComponent /> : <RegularComponent />}
     </>
   );
 }
@@ -23,7 +27,7 @@ function AppTwo(props) {
 ReactDOM.render(
   <>
     <App />
-    <AppTwo authorized={true} />
+    <AppTwo authorized={false} />
   </>,
   document.getElementById('root')
 );
