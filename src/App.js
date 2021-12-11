@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import './App.css';
 import restaurant from "./restaurant.jpg"
 
@@ -50,6 +50,8 @@ function App() {
     console.log(`It's ${secondary} around here`);
   }, [secondary]);
 
+  const [checked, toggle] = useReducer((checked) => !checked, false);
+
   return (
     <div className="App">
       <h1>Current emotion is {emotion} and {secondary}.</h1>
@@ -57,6 +59,9 @@ function App() {
       <button onClick={() => { setSecondary("crabby") }}>Make Crabby</button>
       <button onClick={() => { setEmotion("frustrated") }}>Frustrate</button>
       <button onClick={() => { setEmotion("enthusiastic") }}>Enthuse</button>
+      <br />
+      <input type="checkbox" onChange={toggle} value={checked} />
+      <p>{checked ? "checked" : "not checked"}</p>
       <Header name="Cindy" />
       <Main adjective="amazing" dishes={dishObjects} />
       <Footer year={new Date().getFullYear()} />
