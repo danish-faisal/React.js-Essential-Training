@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import restaurant from "./restaurant.jpg"
 
@@ -36,9 +37,16 @@ const dishes = [
 
 const dishObjects = dishes.map((dish, idx) => ({ id: idx, title: dish }));
 
+
 function App() {
+  const [emotion, SetEmotion] = useState("happy");
+
   return (
     <div className="App">
+      <h1>Current emotion is {emotion}.</h1>
+      <button onClick={() => { SetEmotion("happy") }}>Happy</button>
+      <button onClick={() => { SetEmotion("frustrated") }}>Frustrate</button>
+      <button onClick={() => { SetEmotion("enthusiastic") }}>Enthuse</button>
       <Header name="Cindy" />
       <Main adjective="amazing" dishes={dishObjects} />
       <Footer year={new Date().getFullYear()} />
