@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-  </ul>,
+  <App />,
   document.getElementById('root')
 );
 
