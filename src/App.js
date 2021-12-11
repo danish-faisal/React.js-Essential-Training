@@ -1,5 +1,7 @@
 import { useEffect, useReducer, useState } from 'react';
 import './App.css';
+
+/*
 import restaurant from "./restaurant.jpg"
 
 function Header(props) {
@@ -67,6 +69,23 @@ function App() {
       <Footer year={new Date().getFullYear()} />
     </div>
   );
+}
+*/
+
+function App({ login }) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${login}`)
+      .then(response => response.json())
+      .then(setData);
+  }, []);
+
+  if (data) {
+    return <div>{JSON.stringify(data)}</div>;
+  }
+
+  return <h1>No Users Available</h1>;
 }
 
 export default App;
