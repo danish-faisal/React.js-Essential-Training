@@ -4,15 +4,27 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
-function AppTwo() {
-  return (<h1>This is the Second App</h1>);
+function SecretComponent() {
+  return <h1>Secret information for authorized users only.</h1>
+}
+
+function RegularComponent() {
+  return <h1>Everyone can see this component.</h1>
+}
+
+function AppTwo(props) {
+  return (
+    <>
+      {props.authorized ? <SecretComponent /> : <RegularComponent />}
+    </>
+  );
 }
 
 ReactDOM.render(
-  <React.Fragment>
+  <>
     <App />
-    <AppTwo />
-  </React.Fragment>,
+    <AppTwo authorized={true} />
+  </>,
   document.getElementById('root')
 );
 
