@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import restaurant from "./restaurant.jpg"
 
@@ -39,14 +39,24 @@ const dishObjects = dishes.map((dish, idx) => ({ id: idx, title: dish }));
 
 
 function App() {
-  const [emotion, SetEmotion] = useState("happy");
+  const [emotion, setEmotion] = useState("happy");
+  const [secondary, setSecondary] = useState("tired");
+
+  useEffect(() => {
+    console.log(`It's ${emotion} around here`);
+  }, [emotion]);
+
+  useEffect(() => {
+    console.log(`It's ${secondary} around here`);
+  }, [secondary]);
 
   return (
     <div className="App">
-      <h1>Current emotion is {emotion}.</h1>
-      <button onClick={() => { SetEmotion("happy") }}>Happy</button>
-      <button onClick={() => { SetEmotion("frustrated") }}>Frustrate</button>
-      <button onClick={() => { SetEmotion("enthusiastic") }}>Enthuse</button>
+      <h1>Current emotion is {emotion} and {secondary}.</h1>
+      <button onClick={() => { setEmotion("happy") }}>Make Happy</button>
+      <button onClick={() => { setSecondary("crabby") }}>Make Crabby</button>
+      <button onClick={() => { setEmotion("frustrated") }}>Frustrate</button>
+      <button onClick={() => { setEmotion("enthusiastic") }}>Enthuse</button>
       <Header name="Cindy" />
       <Main adjective="amazing" dishes={dishObjects} />
       <Footer year={new Date().getFullYear()} />
