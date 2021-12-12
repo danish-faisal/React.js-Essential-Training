@@ -1,10 +1,14 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export function Home() {
     return (
         <div>
             <h1>[Company Website]</h1>
             <h1>Hello React Testing Library</h1>
+            <Link to="about">About</Link>
+            <Link to="events">Events</Link>
+            <Link to="contact">Contact</Link>
         </div>
     );
 }
@@ -31,4 +35,10 @@ export function Contact() {
             <h1>[Contact]</h1>
         </div>
     );
+}
+
+export function Whoops404() {
+    const location = useLocation();
+
+    return <h1>Resource not found at {location.pathname}</h1 >
 }

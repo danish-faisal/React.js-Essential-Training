@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from 'react';
 import { Route, Routes } from 'react-router';
 import './App.css';
-import { Home, About, Events, Contact } from "./pages";
+import { Home, About, Events, Contact, Whoops404 } from "./pages";
 
 /*
 import restaurant from "./restaurant.jpg"
@@ -121,6 +121,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Whoops404 />} />
       </Routes>
     </div>
   );
