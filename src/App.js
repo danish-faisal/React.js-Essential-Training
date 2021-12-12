@@ -72,6 +72,7 @@ function App() {
 }
 */
 
+/*
 function App({ login }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -101,6 +102,11 @@ function App({ login }) {
     <p>{data.location}</p>
     <img src={data.avatar_url} alt={data.login} />
   </div>);
+}
+*/
+
+function App() {
+  return <h1>Hello React Testing Library</h1>;
 }
 
 export default App;
