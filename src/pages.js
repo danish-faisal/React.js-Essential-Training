@@ -4,6 +4,7 @@ export function Home() {
     return (
         <div>
             <h1>[Company Website]</h1>
+            <h1>Hello React Testing Library</h1>
         </div>
     );
 }
